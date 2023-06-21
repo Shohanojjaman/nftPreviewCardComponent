@@ -17,12 +17,26 @@ svg {
     max-width: 100%;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+b {
+    font-weight: var(--fw-regular);
+}
+
+hr {
+    border-color: var(--very-dark-blue-l);
+    margin: 20px 0;
+}
+
 :root {
     /* Color */
     /* Primary */
     --soft-blue: hsl(215, 51%, 70%);
     --cyan: hsl(178, 100%, 50%);
-
+    --light-cyan: hsl(178, 100%, 50%, 0.4);
     /* Neutral */
     --very-dark-blue-mbg: hsl(217, 54%, 11%);
     --very-dark-blue-cbg: hsl(216, 50%, 16%);
@@ -35,4 +49,143 @@ svg {
     --fw-light: 300;
     --fw-regular: 400;
     --fw-semi-bold: 600;
+}
+
+body {
+    background: var(--very-dark-blue-mbg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--soft-blue);
+    font-family: var(--ff-outfit);
+    font-weight: var(--fw-light);
+    min-height: 100vh;
+    font-size: 1.125em;
+}
+
+.card {
+    max-width: 350px;
+    min-height: 600px;
+    background: var(--very-dark-blue-cbg);
+    padding: 25px;
+    border-radius: 15px;
+    margin: 0 20px;
+}
+
+.card-img {
+    position: relative;
+
+}
+
+.card-img:hover .overlay {
+    opacity: 1;
+}
+
+.card-img img {
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.overlay {
+    background-color: var(--light-cyan);
+    min-width: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    opacity: 0;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.overlay::before {
+    content: url(./images/icon-view.svg);
+    top: 49%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.card-text h1 {
+    font-size: 1.375rem;
+    margin-bottom: 15px;
+    color: var(--white);
+    font-weight: var(--fw-semi-bold);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.card-text h1:hover {
+    color: var(--cyan);
+}
+
+.card-text p {
+    margin-bottom: 15px;
+}
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-info p {
+    margin: 0;
+
+}
+
+p.price {
+    color: var(--cyan);
+    font-weight: var(--fw-regular);
+    font-size: 1rem;
+    margin-left: 18px;
+    position: relative;
+}
+
+p.price::before {
+    content: url(./images/icon-ethereum.svg);
+    position: absolute;
+    left: -18px;
+}
+
+p.date {
+    font-size: 1rem;
+    margin-left: 18px;
+    position: relative;
+    font-weight: var(--fw-regular);
+}
+
+p.date::before {
+    content: url(./images/icon-clock.svg);
+    position: absolute;
+    left: -21px;
+    top: 0px;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+}
+
+.author img {
+    max-width: 35px;
+    border: 1px solid var(--white);
+    border-radius: 50%;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.author p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: var(--fw-light);
+}
+
+.author p a {
+    color: var(--white);
+    transition: 0.3s;
+}
+
+.author p a:hover {
+    color: var(--cyan);
 }
